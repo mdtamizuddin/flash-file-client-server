@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(199, 199, 199);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(196, 196, 196);
+}
+
+
+.main-section {
+    background-color: whitesmoke;
+    padding-top: 80px !important;
+    overflow: hidden;
+}
+
+.main-container {
+    background-color: white;
+    max-height: 90vh;
+}
+
+p {
+    font-size: 15px;
+    line-height: 27px;
+}
+
+.text-2xl {
+    font-size: 20px !important;
+}
+
+.container {
+    width: 70% !important;
+}
+
+.left-side {
+    width: 75%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+
+}
+
+.right-side {
+    width: 25%;
+    padding: 15px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+.brand-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 1.5rem;
+    margin-top: 50px;
+}
+
+.file-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 1.5rem;
+    margin-top: 50px;
+}
+
+.brand-container .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 2px rgba(209, 208, 208, 0.479);
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.file-container .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px 2px rgba(209, 208, 208, 0.479);
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.brand-container .card .image {
+    /* height: 100px; */
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+
+.brand-container .card h3 {
+    margin-top: 15px;
+}
+
+.file-container .card h3 {
+    margin-top: 15px;
+}
+
+.file-container {
+    display: grid;
+}
+
+.search-box{
+    width: 100%;
+    min-width: 300px;
+    height: auto;
+    overflow-y: scroll;
+    margin-top: 10px;
+    /* display: none; */
+    z-index: 50;
+    position: relative;
+}
+
+.close-btn{
+    background: red;
+    padding: 5px 11px;
+    border-radius: 100%;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

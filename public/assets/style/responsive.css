@@ -1,0 +1,95 @@
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 1500px) {
+
+    .main-section {
+        padding-top: 100px !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .brand-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 1.5rem;
+        margin-top: 50px;
+    }
+    .main-section {
+        padding-top: 120px !important;
+    }
+    .container {
+        width: 80% !important;
+    }
+
+    .left-side {
+        width: 75%;
+    }
+
+    .right-side {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .brand-container {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 1.5rem;
+        margin-top: 50px;
+    }
+
+    .container {
+        width: 90% !important;
+    }
+
+    .main-section {
+        overflow: auto;
+    }
+    .left-side {
+        width: 70%;
+    }
+
+    .right-side {
+        width: 30%;
+    }
+}
+@media screen and (max-width: 750px) {
+
+    .main-section {
+        padding-top: 80px !important;
+    }
+}
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 98% !important;
+    }
+
+    .brand-container {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 1.5rem;
+        margin-top: 50px;
+    }
+
+    .left-side {
+        width: 100%;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .right-side {
+        width: 100%;
+    }
+
+    .brand-container .card .image {
+        height: 70px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px;
+    }
+}
