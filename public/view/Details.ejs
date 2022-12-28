@@ -167,7 +167,9 @@
                     <div class="mt-5 ">
                         <% file.links.map(link=> { %>
                             <a href="<%= link.link %>" type="button"
-                                class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Download
+                                class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                                target="_blank"
+                                >Download
                                 Link (<%= link.size %> GB) </a>
                             <% }) %>
 
