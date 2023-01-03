@@ -42,13 +42,15 @@ app.get('/category/:brand', async (req, res) => {
 })
 app.get('/search/:brand', async (req, res) => {
     const allFile = await Files.find({})
-    Files.find({}, (err, data) => {
-        res.render('view/Category', {
-            name: `${req.params.brand} Flash File `,
-            file: data,
-            files: allFile,
-            brand: req.params.brand
-        })
+
+    const result = await allFile.filter((p) => p.
+        model.includes(req.params.brand))
+        
+    console.log(result)
+    res.render('view/Search', {
+        name: `${req.params.brand} Flash File `,
+        files: allFile,
+        brand: req.params.brand
     })
 })
 app.get('/admin', async (req, res) => {
@@ -83,6 +85,6 @@ app.use((req, res, next) => {
 
 
 
-app.listen(3001, () => {
+app.listen(3000, () => {
     console.log('My Node SSR Project is runnign')
 })

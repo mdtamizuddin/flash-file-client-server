@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.5/dist/flowbite.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../assets/style/style.css">
     <link rel="stylesheet" href="../assets/style/responsive.css">
-    <title>
-        <%= file.title %>
-    </title>
-    <meta name="description" content="<%= file.title %>" />
     <meta name="robots" content="follow, index" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Flash Files -  <?php echo ($post->title) ?>" />
-    <meta property="og:description" content="<%= file.desc %>" />
+    <title>
+        <%= brand %> Flash Files
+    </title>
 </head>
 
 <body>
@@ -87,7 +87,7 @@
                     </li>
                     <li>
                         <a href="/category/samsung"
-                            class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Samsung</a>
+                            class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-blue-200 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Samsung</a>
                     </li>
                     <li>
                         <a href="/category/xiaomi"
@@ -122,94 +122,22 @@
         </div>
     </nav>
 
-    <section class="main-section pt-14">
+    <section class="main-section">
         <div
-            class="container mx-auto lg:flex md:flex block lg:pt-10 md:pt-6 pt-3 main-container shadow-lg min-h-[90vh] max-h-auto">
+            class="container mx-auto lg:flex md:flex block lg:pt-10 md:pt-6 pt-3 main-container shadow-lg min-h-[90vh]  max-h-auto">
             <div class="left-side px-6">
-                <h1 class="text-2xl">
-                    <%= file.title %>
-                </h1>
+                <div class="file-container">
 
-                <p class="py-4 lg:w-[80%]">
-                    On this page, you can find the official link to download Lenovo Tab
-                    <%= file.title %>
-                        Firmware ROM (Flash File) on your computer. Firmware comes in a zip package containing Flash
-                        File,
-                        Flash Tool, USB Driver, and How-to Flash Manual.
-                </p>
-
-
-                <div class="p-6 bg-white mt-4 rounded-lg shadow-md bg-gray-200 overflow-hidden">
-                    <h4 class="text-2xl">
-                        <%= file.title %>
-                    </h4>
-                    <p class="mt-4">
-                        <%= file.desc %>
-                    </p>
-
-                    <p class="font-bold mt-5">File Name : <span class="font-normal">'<%= file.name %></span></p>
-
-                    <h4 class="font-bold mt-5">Version : <span class="font-normal">
-                            <%= file.version %>
-                        </span></h4>
-
-                    <h4 class="font-bold mt-2">File Size : <span class="font-normal">
-                            <%= file.size %>
-                        </span></h4>
-
-                    <a target="_blank" href="<%= file.toolUrl %>" class="font-bold  mt-2">Flash Tool : <span
-                            class="font-normal text-blue-600 hover:underline">
-                            <%= file.toolName %>
-                        </span></a>
-                    <h4> <a target="_blank" href="<%= file.tutorial %>" class="font-bold  inline mt-5">How To Flash &
-                            Install : <span class="font-normal text-blue-600 hover:underline">Follow Tutorial</span></a>
-                    </h4>
-                    <div class="mt-5 ">
-                        <% file.links.map(link=> { %>
-                            <a href="<%= link.link %>" type="button"
-                                class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                                target="_blank"
-                                >Download
-                                Link (<%= link.size %> GB) </a>
-                            <% }) %>
-
-                    </div>
                 </div>
-                <form class="py-10 shadow-lg my-10 p-4" id="contact-form">
-                    <h1 class="text-center text-3xl font-bold">Need Help Contact With Me</h1>
-                    <label for="email-address-icon" class="block my-3 text-sm font-medium text-gray-900 ">Your
-                        Email</label>
-                    <div class="relative">
-                        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                            <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                            </svg>
+
+                <div>
+                    <% files.length < 1 %>
+                        <div>
+                            <h1 class="text-3xl text-center">No File Found</h1>
                         </div>
-                        <input name="email" type="text" id="email-address-icon"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="example@main.com" required>
-                    </div>
-                    <label for="message" class="block my-3 text-sm font-medium text-gray-900 ">Phone Number
-                    </label>
-
-                    <input name="phone" type="number" id="email-address-icon"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="phone Number (WhatsApp)" required>
-                    <label for="message" class="block my-3 text-sm font-medium text-gray-900 ">Your
-                        message</label>
-                    <textarea name="message" id="message" rows="4"
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required placeholder="Leave a comment..."></textarea>
-                    <button type="submit"
-                        class="text-gray-900 mt-7 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Send
-                        Message</button>
-                </form>
-
-
+                        <% %>
+                </div>
             </div>
-
             <div class="right-side">
                 <% files.map(file=> {
                     %>
@@ -219,17 +147,16 @@
                                 <img class="h-full w-full" src="<%= file.image %>" alt="<%= file.model%>">
                             </div>
                             <h3 class="text-center text-xs text-blue-700">
-                                <%= file.model %> Flash File
+                                <%= file.model %>
                             </h3>
                         </div>
                     </a>
                     <% }) %>
+
             </div>
         </div>
-
     </section>
-
-    <div class=" dark:bg-gray-800 bg-white">
+    <div class=" dark:bg-gray-800 bg-white ">
         <footer class="p-4 container mx-auto mt-5  shadow md:flex md:items-center md:justify-between md:p-6 ">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/"
                     class="hover:underline">Flash Files™</a>. All Rights Reserved.
@@ -249,19 +176,7 @@
         </footer>
 
     </div>
-    <script>
-        const form = document.getElementById("contact-form")
-        form.addEventListener('submit', (e) => {
-            e.preventDefault()
-            const email = e.target.email.value
-            const phone = e.target.phone.value
-            const message = e.target.message.value
-            const formData = { email, phone, message }
-            fetch('/api/files').then(res => res.json())
-                .then(data => console.log(data))
-        })
 
-    </script>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="../assets/scripts/script.js"></script>
 </body>
