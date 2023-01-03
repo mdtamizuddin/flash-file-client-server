@@ -127,16 +127,21 @@
             class="container mx-auto lg:flex md:flex block lg:pt-10 md:pt-6 pt-3 main-container shadow-lg min-h-[90vh]  max-h-auto">
             <div class="left-side px-6">
                 <div class="file-container">
-
+                    <% result.map(file=> {
+                        %>
+                        <a href="<%= '/details/' + file._id %>">
+                            <div class="card">
+                                <div class="image">
+                                    <img class="h-full w-full" src="<%= file.image %>" alt="<%= file.model%>">
+                                </div>
+                                <h3 class="text-center text-blue-800">
+                                    <%= file.model %> (Flash File)
+                                </h3>
+                            </div>
+                        </a>
+                        <% }) %>
                 </div>
 
-                <div>
-                    <% files.length < 1 %>
-                        <div>
-                            <h1 class="text-3xl text-center">No File Found</h1>
-                        </div>
-                        <% %>
-                </div>
             </div>
             <div class="right-side">
                 <% files.map(file=> {

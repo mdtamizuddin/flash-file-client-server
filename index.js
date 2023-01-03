@@ -3,6 +3,7 @@ const cors = require('cors')
 const app = express()
 const mongoose = require('mongoose')
 const Files = require('./server/Model/files')
+const transporter = require('./server/Model/transforter')
 app.use(express.json())
 app.use(cors())
 app.set('view engine', 'ejs')
@@ -44,13 +45,13 @@ app.get('/search/:brand', async (req, res) => {
     const allFile = await Files.find({})
 
     const result = await allFile.filter((p) => p.
-        model.includes(req.params.brand))
-        
-    console.log(result)
+        model.toLowerCase().includes(req.params.brand.toLowerCase()))
+
     res.render('view/Search', {
         name: `${req.params.brand} Flash File `,
         files: allFile,
-        brand: req.params.brand
+        brand: req.params.brand,
+        result: result
     })
 })
 app.get('/admin', async (req, res) => {
@@ -77,6 +78,14 @@ mongoose
     .then(() => console.log("Database Is Connected"))
     .catch((err) => console.log(err));
 
+    transporter.verify(function (error, success) {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log("Server is ready to take our messages");
+    }
+});
+app.use('/message', require('./server/Routes/MailerRouter'))
 app.use((req, res, next) => {
     res.status(404).render('view/NotFound', {
     })

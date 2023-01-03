@@ -18,6 +18,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Flash Files -  <?php echo ($post->title) ?>" />
     <meta property="og:description" content="<%= file.desc %>" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
@@ -168,8 +169,7 @@
                         <% file.links.map(link=> { %>
                             <a href="<%= link.link %>" type="button"
                                 class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                                target="_blank"
-                                >Download
+                                target="_blank">Download
                                 Link (<%= link.size %> GB) </a>
                             <% }) %>
 
@@ -251,19 +251,38 @@
     </div>
     <script>
         const form = document.getElementById("contact-form")
+
         form.addEventListener('submit', (e) => {
             e.preventDefault()
             const email = e.target.email.value
             const phone = e.target.phone.value
             const message = e.target.message.value
             const formData = { email, phone, message }
-            fetch('/api/files').then(res => res.json())
-                .then(data => console.log(data))
+            fetch('/message', {
+                method: "post",
+                headers: {
+                    'content-type': "application/json"
+                },
+                body: JSON.stringify(formData)
+            }).then(res => res.json())
+                .then(data => {
+                    if (data.accepted.length > 0) {
+                        e.target.reset()
+                        Toastify({
+                            text: "Message Sent Success",
+                            className: "info",
+                            style: {
+                                background: "linear-gradient(to right, #00b09b, #96c93d)",
+                            }
+                        }).showToast();
+                    }
+                })
         })
 
     </script>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="../assets/scripts/script.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>
